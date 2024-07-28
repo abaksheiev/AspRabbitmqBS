@@ -1,6 +1,5 @@
 Source code for article
-
-# [Example of Message Communication with RabbitMQ]([https://github.com/user/repo/blob/branch/other_file.md](https://medium.com/@anton.baksheiev_61725/example-of-message-communication-with-rabbitmq-55644d45a48a))
+[Example of Message Communication with RabbitMQ](https://medium.com/@anton.baksheiev_61725/example-of-message-communication-with-rabbitmq-55644d45a48a)
 
 Communication proccssed via rabbitMQ
 ```
