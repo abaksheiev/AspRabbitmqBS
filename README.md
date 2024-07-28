@@ -1,4 +1,4 @@
-# Simple example of message communication bitween two systems(appliation/containers)
+# Example of message communication bitween two systems(appliation/containers)
 Communication proccssed via rabbitMQ
 ```
 |   .dockerignore
