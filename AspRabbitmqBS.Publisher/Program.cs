@@ -10,11 +10,10 @@ builder.Services.AddSingleton<RabbitMQService>();  // Register RabbitMQService
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
-    options.SwaggerDoc("v1", new OpenApiInfo { Title = "Your API", Version = "v1" });
+    options.SwaggerDoc("v1", new OpenApiInfo { Title = "RabbitMQ Example", Version = "v1" });
 });
 
 var app = builder.Build();
-
 
 app.UseSwagger();
 app.UseSwaggerUI(options =>

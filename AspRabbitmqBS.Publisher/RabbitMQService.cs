@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AspRabbitmqBS.Publisher;
 
-public class RabbitMQService
+public class RabbitMQService : IDisposable
 {
     private readonly IOptions<RabbitMQSettings> _settings;
     private readonly IConnection _connection;
@@ -13,12 +13,22 @@ public class RabbitMQService
 
     public RabbitMQService(IOptions<RabbitMQSettings> settings)
     {
-        _settings = settings;
+        _settings = settings ?? throw new ArgumentNullException(nameof(settings));
 
-        var factory = new ConnectionFactory { HostName = _settings.Value.HostName };
+        var factory = new ConnectionFactory
+        {
+            HostName = _settings.Value.HostName,
+            UserName = _settings.Value.UserName,
+            Password = _settings.Value.Password
+        };
+
         _connection = factory.CreateConnection();
         _channel = _connection.CreateModel();
+        DeclareQueue();
+    }
 
+    private void DeclareQueue()
+    {
         _channel.QueueDeclare(queue: _settings.Value.QueueName,
                               durable: false,
                               exclusive: false,
@@ -28,6 +38,8 @@ public class RabbitMQService
 
     public void PublishMessage(string message)
     {
+        if (message == null) throw new ArgumentNullException(nameof(message));
+
         var body = Encoding.UTF8.GetBytes(message);
 
         _channel.BasicPublish(exchange: string.Empty,
@@ -40,5 +52,7 @@ public class RabbitMQService
     {
         _channel?.Close();
         _connection?.Close();
+        _channel?.Dispose();
+        _connection?.Dispose();
     }
 }

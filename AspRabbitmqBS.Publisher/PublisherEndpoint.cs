@@ -13,6 +13,7 @@ public static class PublisherEndpointExtension
     {
         app
             .MapPost("/publishMessage", PublisherResult)
+            .WithTags("Publish Message")
             .WithOpenApi();
     }
 
