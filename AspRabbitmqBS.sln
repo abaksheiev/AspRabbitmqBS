@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspRabbitmqBS.Consumer", "AspRabbitmqBS.Consumer\AspRabbitmqBS.Consumer.csproj", "{D1EE47AC-71DA-478C-B91B-0ED9092715E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "devops", "devops", "{37AD79B4-25E5-4CCC-BEE1-F705B7912585}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspRabbitmqBS.Publisher", "AspRabbitmqBS.Publisher\AspRabbitmqBS.Publisher.csproj", "{2C1458B5-D3ED-41F0-BF91-BDADC9478AD8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1EE47AC-71DA-478C-B91B-0ED9092715E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1EE47AC-71DA-478C-B91B-0ED9092715E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1EE47AC-71DA-478C-B91B-0ED9092715E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1EE47AC-71DA-478C-B91B-0ED9092715E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C1458B5-D3ED-41F0-BF91-BDADC9478AD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C1458B5-D3ED-41F0-BF91-BDADC9478AD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C1458B5-D3ED-41F0-BF91-BDADC9478AD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C1458B5-D3ED-41F0-BF91-BDADC9478AD8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {15B3AFE2-160D-40C8-9C45-691870229259}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,48 @@
+networks:
+  mynetwork:
+    driver: bridge
+
+services:
+  rabbitmq:
+    image: "rabbitmq:3-management"
+    ports:
+      - "5672:5672" # RabbitMQ broker port
+      - "15672:15672" # RabbitMQ management UI port
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    networks:
+      - mynetwork
+
+  rabbitmqpublisher:
+    build: 
+      context: ./AspRabbitmqBS.Publisher
+      dockerfile: Dockerfile
+    depends_on:
+      - rabbitmq
+    ports:
+      - "8087:8080"
+      - "8088:443"  # Map HTTPS port
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - RabbitMQSettings__HostName=rabbitmq
+      - RabbitMQSettings__QueueName=sharedMessage
+      - RabbitMQSettings__UserName=guest
+      - RabbitMQSettings__Password=guest
+    networks:
+      - mynetwork
+
+  rabbitmqconsumer:
+    build: 
+      context: ./AspRabbitmqBS.Consumer
+      dockerfile: Dockerfile
+    depends_on:
+      - rabbitmq
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - RabbitMQSettings__HostName=rabbitmq
+      - RabbitMQSettings__QueueName=sharedMessage
+      - RabbitMQSettings__UserName=guest
+      - RabbitMQSettings__Password=guest
+    networks:
+      - mynetwork

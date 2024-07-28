@@ -1,0 +1,16 @@
+{
+  "profiles": {
+    "AspRabbitmqBS.Consumer": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "RabbitMQSettings__HostName": "rabbitmq",
+        "RabbitMQSettings__QueueName": "sharedMessage",
+        "RabbitMQSettings__UserName": "guest",
+        "RabbitMQSettings__Password": "guest"
+      },
+      "Container (Dockerfile)": {
+        "commandName": "Docker"
+      }
+    }
+}
