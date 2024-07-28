@@ -1,6 +1,6 @@
 # Simple example of message communication bitween two systems(appliation/containers)
 Communication proccssed via rabbitMQ
-
+```
 |   .dockerignore
 |   .gitignore
 |   AspRabbitmqBS.csproj
@@ -43,3 +43,4 @@ Communication proccssed via rabbitMQ
     |
     \---Properties
             launchSettings.json
+```
